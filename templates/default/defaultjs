@@ -1,0 +1,49 @@
+import Taro, { Component } from '@tarojs/taro'
+import { View, Text } from '@tarojs/components'
+import { connect } from "@tarojs/redux"
+import "taro-ui/dist/style/components/flex.scss";
+import './<%= project_name %>.scss'
+
+@connect(({ <%= project_name %>_model, loading }) => ({
+  ...<%= project_name %>_model,
+  loading: loading.effects["<%= project_name %>_model/get_<%= project_name %>_model"]
+}))
+
+
+class <%= project_name %> extends Component {
+
+  config = {
+    navigationBarTitleText: '首页'
+  }
+
+  componentWillMount () { }
+
+  componentDidMount () {
+    this.props.dispatch({
+      type: "<%= project_name %>_model/get_<%= project_name %>_model"
+    })
+   }
+
+  componentWillUnmount () { }
+
+  componentDidShow () { }
+
+  componentDidHide () { }
+
+  render () {
+    return (
+      <View className='<%= project_name %>'>
+         <View className='at-row'>
+          <View className='at-col at-col-2'>A</View>
+          <View className='at-col at-col-10'>B</View>
+          </View>
+          <View className='at-row'>
+          <View className='at-col'>A</View>
+          <View className='at-col'>B</View>
+          </View>
+        
+      </View>
+    )
+  }
+}
+export default <%= project_name %>;

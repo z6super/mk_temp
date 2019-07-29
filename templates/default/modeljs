@@ -1,0 +1,61 @@
+import Taro from "@tarojs/taro";
+import * as api from '../services/<%= project_name %>_service'
+
+export default{
+  namespace: '<%= project_name %>_model',
+  state: {
+    
+    <%= project_name %>_home_data: [],
+
+    page_state:''
+  
+  },
+  reducers: {
+    save(state, { payload }) {
+      return { ...state, ...payload };
+    }
+  },
+  effects: {
+    *get_<%= project_name %>_model(_, { call, put, select }) {
+      console.log('========get_index_model==============')
+      const network = yield call(Taro.getNetworkType);
+
+      if (network.networkType === 'none') {
+        yield put({
+          type: 'save',
+          payload: {
+            page_state: 'wrong',
+          }
+        });
+
+        Taro.showToast({
+          title: '无法连接网络，请检查网络',
+          icon: 'none',
+          mask: true,
+          duration: 3000
+        });
+       
+      } else {
+
+        //const { data } = yield call(api.get<%= project_name %>Data, {}); data 为json具体数据
+          
+     
+        
+      }
+
+     
+    }
+  },
+  subscriptions:{
+
+   //subscription 是订阅，用于订阅一个数据源，然后根据需要 dispatch 相应的 action。
+   
+   
+   
+
+  }
+
+
+
+
+}

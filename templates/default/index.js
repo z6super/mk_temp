@@ -22,27 +22,27 @@ module.exports = function (creater, params, helper, cb) {
   fs.ensureDirSync(path.join(projectPath, 'models'))
   fs.ensureDirSync(path.join(projectPath, 'services'))
 
-  creater.template(template, 'defaultjs', path.join(modelDir, modelName), {
+  creater.template(template, 'modeljs', path.join(modelDir, modelName), {
     description,
-    projectName,
+    project_name:projectName,
     version
   })
 
-  creater.template(template, 'defaultjs', path.join(serviceDir, serviceName), {
+  creater.template(template, 'servicejs', path.join(serviceDir, serviceName), {
     description,
-    projectName,
+    project_name:projectName,
     version
   })
 
   creater.template(template, 'defaultjs', path.join(projectPath, projectMainName), {
     description,
-    projectName,
+    project_name:projectName,
     version
   })
 
   creater.template(template, 'defaultscss', path.join(projectPath, projectMainCSSName), {
     description,
-    projectName,
+    project_name:projectName,
     version
   })
 

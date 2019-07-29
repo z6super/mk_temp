@@ -1,6 +1,6 @@
 {
   "name": "z6super_mk_temp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "make a tool ",
   "main": "./src/test.js",
   "scripts": {

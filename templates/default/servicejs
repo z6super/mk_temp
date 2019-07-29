@@ -1,0 +1,9 @@
+
+export const get<%= project_name %>Data = () =>{
+
+  console.log('=================getIndexData==================')
+
+  
+}
+
+
